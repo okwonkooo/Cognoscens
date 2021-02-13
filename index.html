@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-project</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>            
+</head>
+<body onload="checkDevice()">
+    <div class="container valign-wrapper center-align">
+        <div class="row">
+            <div class="col s12"><h1>Cognoscens</h1></div>
+            <div class="col s12 divider"></div>
+            <div class="col s12">
+                <div class="section">
+                    <p>A tool to help people learn languages by being presented with random images and attempting to describe them in their target language. It was made specifically for IB students who are studying a language at an <i>ab initio</i> level for their <a href="https://www.holyheart.ca/wp-content/uploads/2019/06/Langage-ab-initio-Guide-first-assessment-2020-2.pdf#page=42" target="_blank">IAs</a>.</p>
+                </div>
+            </div>
+            <div class="col s4 offset-s4 divider"></div>
+            <div class="col s12">
+                <h3>How to use?</h3>
+            </div>
+            <div class="col s4 offset-s4 divider"></div>
+            <div class="col s12">
+                <div class="section" id="howtouse">
+                    <h4>Step 1</h4>
+                    <p>Press <img src="arrow-circle-down.svg" alt="arrow-down" class="circledown"></p>
+                    <h4>Step 2</h4>
+                    <p>As soon as you're able to see the image, a timer will start. Either a) start describing the image out loud or b) write it down on the text-box directly below the image.</p>
+                    <h4>Step 3</h4>
+                    <p>Once the timer has ended or you feel like there's nothing else to say, move on to the next image.</p>
+                    <h4>Step 4</h4>
+                    <p>Repeat step 2 and 3 for the other images.</p>
+                    <h4>Step 5</h4>
+                    <p>Repeat as many times as you want.</p>
+                </div>
+                <div class="col s4 offset-s4 divider"></div>
+            </div>
+            <div class="col s12" id="images">
+                <div id="img1"></div>
+            </div>
+            <input type="image" src="arrow-circle-down.svg" alt="arrow-circle-down" onclick="showImages()">
+        </div>
+        
+    </div>
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
