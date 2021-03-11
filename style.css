@@ -1,0 +1,23 @@
+* {
+    background-color: #1b1b1b;
+    color: #e1e1d9;
+}
+
+h1, h3, h4 {
+    color: #fff600;
+}
+
+
+#images {
+    display: none; 
+}
+
+#test {
+    margin-top: 5rem;
+}
+
+.countdown-panel {
+    margin-top: 5rem; 
+}
+
+/* #fff600 */
