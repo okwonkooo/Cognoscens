@@ -1,12 +1,20 @@
+/* VERY DARK BLUE => #1e2b2a
+HEADING RED => #e42f2f
+ACCENT COLOR YELLOW => #d29d21
+DARK GREY => #9e9c9f
+LIGHT GREY => #fbfbfb
+COLOR FOR MATERIALIZE grey lighten-5
+  */
+
 * {
-    background-color: #1b1b1b;
-    color: #e1e1d9;
+    /* background-color: #1b1b1b; */
+    background-color: #1e2b2a;
+    color: #fbfbfb;
 }
 
 h1, h3, h4 {
-    color: #fff600;
+    color: #e42f2f;
 }
-
 
 #images {
     display: none; 
@@ -20,4 +28,15 @@ h1, h3, h4 {
     margin-top: 5rem; 
 }
 
-/* #fff600 */
+span {
+    margin: 0; 
+    padding: 0; 
+    color: #e42f2f; 
+}
+
+.circledown {
+    filter: invert(100%);
+    margin: 0; 
+    padding: 0; 
+    border-radius: 60px;
+}

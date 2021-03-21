@@ -1,5 +1,3 @@
-//will use onclick() for input on that button that's going to show the images
-
 //We can add the resolution at the end of the url but we first have to find out whether the user is using a phone or not
 const rawUnsplashedUrl = "https://source.unsplash.com/random";
 const countdownminutes = 5;
@@ -33,27 +31,6 @@ function showImages(){
         
         return unsplashedUrl;
     }
-
-    //Countdown timer for 5 minutes
-    // function countDown() {
-    //     var seconds = 60; 
-    //     var mins = 5;
-    //     function clickClock(counter) {
-    //         var counter = document.getElementById("countdown1");
-    //         var currentMinutes = mins - 1; 
-    //         seconds--; 
-    //         counter.innerHTML = currentMinutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-    //         if(seconds > 0) {
-    //             setTimeout(clickClock, 1000);
-    //         } else {
-    //             if(mins > 1) {
-    //                 countDown(mins-1);
-    //             }
-    //         }
-    //     }
-    //     clickClock();
-    // }
-    // countDown();
 
     // Countdown
     const timersDurationInMilliseconds = 1000 * 60 * 5; // for 5 minutes do: 1000 * 60 * 5
@@ -112,13 +89,6 @@ function showImages(){
     counterElement.innerHTML = `${padNumber(minutesLeft)}:${padNumber(secondsLeft)}`;
     }
 
-
-
-
-    
-
-
-
     var img1, img2, img3; 
     var img1Child, img2Child, img3Child;
     img1 = document.createElement("img");
@@ -135,7 +105,6 @@ function showImages(){
     img3.src=getImages();
     img3Child = document.getElementById("img3");
     img3Child.appendChild(img3);
-
 
 }
 
