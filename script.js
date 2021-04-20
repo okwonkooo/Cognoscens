@@ -19,35 +19,34 @@ function showImages(){
     document.getElementById("images").style.display = "block";
     
     //Getting the images themselves
-    function getImages() {
+    function getImages(x) {
         // If the user is using a phone, get images with the resolution 350x75, otherwise 1280x1024. The date is there so that urls are different (otherwise it'll be stored in the cache and the images would repeat)
         var random = Math.floor(Math.random() * 10); // don't want 10 numbers to avoid adding making the resolution in the 1000's.
         if(phone == true) {
-            console.log("PHONE!");
-            var unsplashedUrl = rawUnsplashedUrl + "/" + "350x75" + random;
+            var unsplashedUrl = rawUnsplashedUrl + "/" + "350x75" + x;
         } else {
-            var unsplashedUrl = rawUnsplashedUrl + "/" + "1280x102" + random;
+            var unsplashedUrl = rawUnsplashedUrl + "/" + "1280x102" + x;
         }
         
         return unsplashedUrl;
     }
 
     // Countdown
-    const timersDurationInMilliseconds = 1000 * 60 * 5; // for 5 minutes do: 1000 * 60 * 5
+    const timersDurationInMilliseconds = 1000 * 60 * 5; 
 
-    // rendering initial timer content
+    // Rendering initial timer content
     RenderTimer('countdown1', timersDurationInMilliseconds);
     RenderTimer('countdown2', timersDurationInMilliseconds);
     RenderTimer('countdown3', timersDurationInMilliseconds);
 
-    //Start the countdown and then start the other ones
+    // Start the countdown and then start the other ones
     countDown(timersDurationInMilliseconds, 'countdown1')
     .then(() => countDown(timersDurationInMilliseconds, 'countdown2'))
     .then(() => countDown(timersDurationInMilliseconds, 'countdown3'))
     .then(() => alert('All timers finished!'));
 
 
-    // required functions
+    // Required functions
     function countDown(durationInMilliseconds, elementId) {
     return new Promise((resolve, reject) => {
         const updateFrequencyInMilliseconds = 10;
@@ -57,14 +56,10 @@ function showImages(){
         function updateTimer(elementId) {
         let timeLeft = endTime - new Date();
         if (timeLeft > 0) {
-            // We're not done yet!
             setTimeout(updateTimer, updateFrequencyInMilliseconds, elementId);
         } else {
             resolve();
-            
-            // depending on update frequency, timer may lag behind and stop few milliseconds too late
-            // this will cause timeLeft to be less than 0
-            // let's reset it back to 0, so it renders nicely on the page
+           // The timer may lag behind and stop a couple of milliseconds too late because of update frequency. timeLeft is set back to 0 to avoid this 
             timeLeft = 0;
         }
         
@@ -92,19 +87,26 @@ function showImages(){
     var img1, img2, img3; 
     var img1Child, img2Child, img3Child;
     img1 = document.createElement("img");
-    img1.src=getImages();
+    img1.src=getImages(1);
     img1Child = document.getElementById("img1");
     img1Child.appendChild(img1);
 
     img2 = document.createElement("img");
-    img2.src=getImages();
+    img2.src=getImages(2);
     img2Child = document.getElementById("img2");
     img2Child.appendChild(img2);
 
     img3 = document.createElement("img");
-    img3.src=getImages();
+    img3.src=getImages(3);
     img3Child = document.getElementById("img3");
     img3Child.appendChild(img3);
 
+    document.getElementById("buttonDown").remove();
+    document.getElementById("spinner").style.visibility="visible";    
+
 }
 
+function reload() { 
+    location.reload();
+    return false; // requirement for refershing after an onclick event since location.reload() provides no return value
+}

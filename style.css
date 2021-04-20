@@ -1,19 +1,22 @@
-/* VERY DARK BLUE => #1e2b2a
-HEADING RED => #e42f2f
-ACCENT COLOR YELLOW => #d29d21
-DARK GREY => #9e9c9f
-LIGHT GREY => #fbfbfb
-COLOR FOR MATERIALIZE grey lighten-5
-  */
+/* BACKGROUND #314455
+TITLE #C96567
+DARKTITLE #9E5A63
+ACCENT #97AABD 
+LIGHT_ACCENT #97AABD */
 
 * {
-    /* background-color: #1b1b1b; */
-    background-color: #1e2b2a;
+    background-color: #314455;
     color: #fbfbfb;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1, h3, h4 {
-    color: #e42f2f;
+    color: #C96567;
+}
+
+h1 {
+    font-family: 'Mrs Sheppards', cursive;
+    font-size: 80px; 
 }
 
 #images {
@@ -31,7 +34,7 @@ h1, h3, h4 {
 span {
     margin: 0; 
     padding: 0; 
-    color: #e42f2f; 
+    color: #fbfbfb; 
 }
 
 .circledown {
@@ -39,4 +42,24 @@ span {
     margin: 0; 
     padding: 0; 
     border-radius: 60px;
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+#buttonDown {
+    margin-top: 1rem;
+}
+
+#spinner { 
+    rotate: 270deg;
+    height: 20px; 
+    width: auto;
+    visibility: hidden;
 }
