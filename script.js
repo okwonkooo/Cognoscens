@@ -1,7 +1,5 @@
 //We can add the resolution at the end of the url but we first have to find out whether the user is using a phone or not
 const rawUnsplashedUrl = "https://source.unsplash.com/random";
-const countdownminutes = 5;
-let time = countdownminutes * 60; 
 const countdownEl = document.getElementById("countdown");
 var unsplashedUrl = "";
 
@@ -21,7 +19,6 @@ function showImages(){
     //Getting the images themselves
     function getImages(x) {
         // If the user is using a phone, get images with the resolution 350x75, otherwise 1280x1024. The date is there so that urls are different (otherwise it'll be stored in the cache and the images would repeat)
-        var random = Math.floor(Math.random() * 10); // don't want 10 numbers to avoid adding making the resolution in the 1000's.
         if(phone == true) {
             var unsplashedUrl = rawUnsplashedUrl + "/" + "350x75" + x;
         } else {
@@ -54,7 +51,7 @@ function showImages(){
         const endTime = new Date(currentTimeInMilliseconds + durationInMilliseconds);
         
         function updateTimer(elementId) {
-        let timeLeft = endTime - new Date();
+        var timeLeft = endTime - new Date();
         if (timeLeft > 0) {
             setTimeout(updateTimer, updateFrequencyInMilliseconds, elementId);
         } else {
@@ -84,6 +81,7 @@ function showImages(){
     counterElement.innerHTML = `${padNumber(minutesLeft)}:${padNumber(secondsLeft)}`;
     }
 
+    // Making the image elements and making their source equal to the result of getImages()
     var img1, img2, img3; 
     var img1Child, img2Child, img3Child;
     img1 = document.createElement("img");
@@ -101,11 +99,14 @@ function showImages(){
     img3Child = document.getElementById("img3");
     img3Child.appendChild(img3);
 
+    // Removing the button with an arrow pointing downwards so that the user can't click it anymore
     document.getElementById("buttonDown").remove();
+    // Making the reload button visible so that the user can restart the program
     document.getElementById("spinner").style.visibility="visible";    
 
 }
 
+// Reloads the website once the restart button is clicked
 function reload() { 
     location.reload();
     return false; // requirement for refershing after an onclick event since location.reload() provides no return value
