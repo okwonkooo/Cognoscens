@@ -63,3 +63,13 @@ span {
     width: auto;
     visibility: hidden;
 }
+
+.input-field textarea:focus + label {
+    color: #97AABD !important;
+  }
+  
+  .row .input-field textarea:focus {
+    border-bottom: 1px solid #97AABD !important;
+    box-shadow: 0 1px 0 0 #97AABD !important
+  }
+
