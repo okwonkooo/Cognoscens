@@ -1,7 +1,48 @@
 //We can add the resolution at the end of the url but we first have to find out whether the user is using a phone or not
-const rawUnsplashedUrl = "https://source.unsplash.com/random";
+const rawUnsplashedUrl = "https://source.unsplash.com";
 const countdownEl = document.getElementById("countdown");
 var unsplashedUrl = "";
+var themes = [
+    // Identities
+    "personal-attributes",    
+    "personal-relationships",
+    "relationships",
+    "eating",
+    "drinking",
+    "well-being",
+
+    // Experiences
+    "daily-routine",
+    "leisure", 
+    "holidays",
+    "festivals",
+    "celebrations",
+
+    // Human ingenuity
+    "transport",
+    "entertainment",
+    "media",
+    "technology",
+
+    // Social organization
+    "neighbourhood", 
+    "education", 
+    "workplace", 
+    "social-issues",
+
+    // Sharing the Planet
+    "climate", 
+    "geography", 
+    "environment", 
+    "global-issues"
+]
+
+// length is 23
+
+function randomTheme() {
+    var number = Math.floor(Math.random() * 23) + 1; 
+    return themes[number]
+}
 
 function showImages(){
     //Checks whether the user is using a phone, using Mobi as instructed on MDN (https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent)
@@ -18,11 +59,11 @@ function showImages(){
     
     //Getting the images themselves
     function getImages(x) {
-        // If the user is using a phone, get images with the resolution 350x75, otherwise 1280x1024. The date is there so that urls are different (otherwise it'll be stored in the cache and the images would repeat)
+        // If the user is using a phone, get images with the resolution 350x75, otherwise 950x750. The date is there so that urls are different (otherwise it'll be stored in the cache and the images would repeat)
         if(phone == true) {
-            var unsplashedUrl = rawUnsplashedUrl + "/" + "350x75" + x;
+            var unsplashedUrl = rawUnsplashedUrl + "/" + "350x75" + x + "/?" + randomTheme();
         } else {
-            var unsplashedUrl = rawUnsplashedUrl + "/" + "1280x102" + x;
+            var unsplashedUrl = rawUnsplashedUrl + "/" + "950x75" + x + "/?" + randomTheme();
         }
         
         return unsplashedUrl;
