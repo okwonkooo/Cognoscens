@@ -4,45 +4,55 @@ const countdownEl = document.getElementById("countdown");
 var unsplashedUrl = "";
 var themes = [
     // Identities
-    "personal-attributes",    
-    "personal-relationships",
-    "relationships",
-    "eating",
-    "drinking",
-    "well-being",
-
+    [
+        "personal-attributes",    
+        "personal-relationships",
+        "relationships",
+        "eating",
+        "drinking",
+        "well-being"
+    ],    
+    
     // Experiences
-    "daily-routine",
-    "leisure", 
-    "holidays",
-    "festivals",
-    "celebrations",
+    [
+        "daily-routine",
+        "leisure", 
+        "holidays",
+        "festivals",
+        "celebrations"
+    ],
 
     // Human ingenuity
-    "transport",
-    "entertainment",
-    "media",
-    "technology",
+    [
+        "transport",
+        "entertainment",
+        "media",
+        "technology"
+    ],
 
     // Social organization
-    "neighbourhood", 
-    "education", 
-    "workplace", 
-    "social-issues",
+    [
+        "neighbourhood", 
+        "education", 
+        "workplace", 
+        "social-issues"
+    ],
 
     // Sharing the Planet
-    "climate", 
-    "geography", 
-    "environment", 
-    "global-issues"
+    [
+        "climate", 
+        "geography", 
+        "environment", 
+        "global-issues"
+    ]
 ]
 
-// length is 23
-
 function randomTheme() {
-    var number = Math.floor(Math.random() * 23) + 1; 
-    return themes[number]
+    var number = Math.floor(Math.random() * themes.length);
+    var subnumber = Math.floor(Math.random() * themes[number].length);
+    return themes[number][subnumber]
 }
+
 
 function showImages(){
     //Checks whether the user is using a phone, using Mobi as instructed on MDN (https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent)
@@ -63,7 +73,7 @@ function showImages(){
         if(phone == true) {
             var unsplashedUrl = rawUnsplashedUrl + "/" + "350x75" + x + "/?" + randomTheme();
         } else {
-            var unsplashedUrl = rawUnsplashedUrl + "/" + "950x75" + x + "/?" + randomTheme();
+            var unsplashedUrl = rawUnsplashedUrl + "/" + "1280x80" + x + "/?" + randomTheme();
         }
         
         return unsplashedUrl;
@@ -113,7 +123,6 @@ function showImages(){
     }
 
     function RenderTimer(elementId, timeLeft) {
-    const hoursLeft = Math.floor(timeLeft / 1000 / 60 / 60 % 60);
     const minutesLeft = Math.floor(timeLeft / 1000 / 60 % 60);
     const secondsLeft = Math.floor(timeLeft / 1000 % 60);
     const millisecondsLeft = timeLeft % 1000;
@@ -152,3 +161,4 @@ function reload() {
     location.reload();
     return false; // requirement for refershing after an onclick event since location.reload() provides no return value
 }
+
